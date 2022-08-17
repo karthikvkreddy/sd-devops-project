@@ -2,18 +2,18 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 
-console.log('environment    ', process.env.ENVIRONMENT)
-console.log('PORT    ', process.env.PORT)
-console.log('MONGO_CONNECTION_STRING    ', process.env.MONGO_CONNECTION_STRING)
-if(process.env.ENVIRONMENT !== 'production') {
-    require('dotenv').config()
-}
+
+require('dotenv').config();
+
+console.log('environment    ', process.env.ENVIRONMENT);
+console.log('PORT    ', process.env.PORT);
+console.log('MONGO_CONNECTION_STRING    ', process.env.MONGO_CONNECTION_STRING);
 
 
 const taskController = require('./controller/task.controller')
 
 const app = express();
-const port = 4200;
+const port = 80;
 
 app.use(express.static('../ui/dist/ui/'));
 app.use(bodyParser.json());
